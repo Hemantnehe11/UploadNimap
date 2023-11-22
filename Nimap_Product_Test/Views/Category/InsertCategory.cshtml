@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "InsertCategory";
+}
+
+<div class="container">
+    <h2>Add New Category</h2>
+    <div class="form-horizontal" action="/action_page.php">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Category Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Category" placeholder="Enter Category" name="Category">
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="SaveCategory" class="btn btn-primary">Submit</button> | 
+                @Html.ActionLink("Back", "CategoryList")
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $("#SaveCategory").click(function () {
+        var catObj = {
+            CategoryName: $('#Category').val()
+        };
+        $.ajax({
+            url: "/Category/InsertCategory",
+            data: JSON.stringify(catObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                debugger;
+                if (result == 1) {
+                    alert("Category save sucessfully!")
+                    $('#Category').val("");
+                }
+
+
+            }
+        });
+
+
+    });
+
+</script>
+

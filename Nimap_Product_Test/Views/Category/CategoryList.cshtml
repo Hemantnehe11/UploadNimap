@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Nimap_Product_Test.Models.CategoryDM>
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+
+<link href="~/Scripts/Table.css" rel="stylesheet" />
+
+<style>
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+        /* Style the active/current link */
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        /* Add a grey background color on mouse-over */
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+    }
+
+    tr:hover {
+        background-color: #D6EEEE;
+    }
+</style>
+
+<div>
+      @Html.ActionLink("Add new Category", "InsertCategory") 
+</div>
+
+<br />
+
+<div class="container">
+
+
+    <table>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Action</th>
+        </tr>
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.CategoryId</th>
+                    <th>@item.CategoryName</th>
+                    <th>
+                        @Html.ActionLink("Edit", "BindCategoryByID", new { id = item.CategoryId }) |
+                        @Html.ActionLink("Delete", "DeleteCategory", new { id = item.CategoryId })
+                    </th>
+
+                    @*<th><input type="button" value="Edit" id="EditCategory" data-id="@item.CategoryId"> | <input type="button" value="Delete" /></th>*@
+                </tr>
+            }
+        }
+
+        </table>
+    <br />
+    <!--		Start Pagination -->
+    @*<div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>*@
+
+
+    <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    
+
+</script>

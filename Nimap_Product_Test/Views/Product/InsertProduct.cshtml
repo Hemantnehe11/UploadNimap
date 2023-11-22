@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "InsertProduct";
+}
+
+
+<div class="container">
+    <h2>Add New Product</h2>
+    <div class="form-horizontal" action="/action_page.php">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Select Category:</label>
+            <div class="col-sm-10">
+                <select id="CategoryId" class="form-control">
+                    <option value="0">Select Category</option>
+                    @foreach (var item in ViewBag.Category)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Product Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="ProductName" placeholder="Enter Product" name="ProductName">
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="SaveProduct" class="btn btn-primary">Submit</button> |
+                @Html.ActionLink("Back", "ProuctList")
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $("#SaveProduct").click(function () {
+        var proObj = {
+            CategoryId: $('#CategoryId').val(),
+            ProductName: $('#ProductName').val()
+        };
+        $.ajax({
+            url: "/Product/InsertProduct",
+            data: JSON.stringify(proObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                debugger;
+                if (result == 1) {
+                    alert("Proudct save sucessfully!")
+                    $('#ProductName').val("");
+                }
+
+
+            }
+        });
+
+
+    });
+
+</script>
+
+

@@ -1,0 +1,301 @@
+USE [Nimaap]
+GO
+/****** Object:  Table [dbo].[CategoryTbl]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CategoryTbl](
+	[CategoryId] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryName] [varchar](50) NULL,
+ CONSTRAINT [PK_CategoryTbl] PRIMARY KEY CLUSTERED 
+(
+	[CategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Product_tbl]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Product_tbl](
+	[ProductId] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [varchar](50) NULL,
+	[CategoryId] [int] NULL,
+ CONSTRAINT [PK_Product_tbl] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[CategoryTbl] ON 
+GO
+INSERT [dbo].[CategoryTbl] ([CategoryId], [CategoryName]) VALUES (1002, N'Electronic')
+GO
+INSERT [dbo].[CategoryTbl] ([CategoryId], [CategoryName]) VALUES (1003, N'Coth')
+GO
+INSERT [dbo].[CategoryTbl] ([CategoryId], [CategoryName]) VALUES (1004, N'Laptop')
+GO
+INSERT [dbo].[CategoryTbl] ([CategoryId], [CategoryName]) VALUES (1005, N'Mobile')
+GO
+SET IDENTITY_INSERT [dbo].[CategoryTbl] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Product_tbl] ON 
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (3, N'SmartWatch', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (4, N'Printer', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (5, N'TransFormer', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (6, N'Juicer', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (7, N'MicroWave', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (8, N'Blender', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (9, N'Printer', 1002)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (10, N'jacket', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (11, N'Dress', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (12, N'T-shirt', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (13, N'Sweater', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (14, N'Shorts', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (15, N'SportWear', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (16, N'Jeans', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (17, N'Coat', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (18, N'Skirt', 1003)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (19, N'Dell', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (20, N'Asus', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (21, N'Acer', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (22, N'Lenovo', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (23, N'Apple', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (24, N'Samsung', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (25, N'Microsoft', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (26, N'MSI', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (27, N'Razer', 1004)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (28, N'Nokia', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (29, N'Apple', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (30, N'Samsung', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (31, N'Vivo', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (32, N'Xiaomi', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (33, N'Lava', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (34, N'OnePluse', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (35, N'Motorola', 1005)
+GO
+INSERT [dbo].[Product_tbl] ([ProductId], [ProductName], [CategoryId]) VALUES (36, N'Nokia', 1005)
+GO
+SET IDENTITY_INSERT [dbo].[Product_tbl] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[getCategory]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[getCategory]
+AS
+select * from CategoryTbl
+GO;
+GO
+/****** Object:  StoredProcedure [dbo].[getInserUpdateDeleteProduct]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[getInserUpdateDeleteProduct]
+(
+    @CategoryId INTEGER,
+	@ProductId INTEGER,
+    @ProductName NVARCHAR(50),
+	 @Action VARCHAR(10)
+)
+AS
+BEGIN
+    IF @Action = 'Insert'
+    BEGIN
+        INSERT INTO Product_tbl (ProductName,CategoryId) VALUES (@ProductName,@CategoryId);
+    END
+
+    IF @Action = 'Update'
+    BEGIN
+        UPDATE Product_tbl
+        SET ProductName = @ProductName,CategoryId = @CategoryId
+        WHERE ProductId = @ProductId;
+    END
+	  IF @Action = 'GetById'
+    BEGIN
+        select * from Product_tbl where ProductId = @ProductId
+    END
+
+	  IF @Action = 'Delete'
+    BEGIN
+        delete Product_tbl where ProductId = @ProductId
+    END
+	 IF @Action = 'Get'
+    BEGIN
+        select * from Product_tbl 
+    END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertCategory]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[InsertCategory]
+(
+    @CategoryId INTEGER,
+    @CategoryName NVARCHAR(50),
+	 @Action VARCHAR(10)
+)
+AS
+BEGIN
+    IF @Action = 'Insert'
+    BEGIN
+        INSERT INTO CategoryTbl (CategoryName) VALUES (@CategoryName);
+    END
+
+    IF @Action = 'Update'
+    BEGIN
+        UPDATE CategoryTbl
+        SET CategoryName = @CategoryName
+        WHERE CategoryId = @CategoryId;
+    END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertUpdateAdGetCategory]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[InsertUpdateAdGetCategory]
+(
+    @CategoryId INTEGER,
+    @CategoryName NVARCHAR(50),
+	 @Action VARCHAR(10)
+)
+AS
+BEGIN
+    IF @Action = 'Insert'
+    BEGIN
+        INSERT INTO CategoryTbl (CategoryName) VALUES (@CategoryName);
+    END
+
+    IF @Action = 'Update'
+    BEGIN
+        UPDATE CategoryTbl
+        SET CategoryName = @CategoryName
+        WHERE CategoryId = @CategoryId;
+    END
+	  IF @Action = 'Get'
+    BEGIN
+        select * from CategoryTbl where CategoryId = @CategoryId
+    END
+
+	  IF @Action = 'Delete'
+    BEGIN
+        delete CategoryTbl where CategoryId = @CategoryId
+    END
+END
+GO
+/****** Object:  StoredProcedure [dbo].[PaginationBefore2012WithTOP]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[PaginationBefore2012WithTOP]
+(
+    @start INT = 1
+)
+AS
+BEGIN
+    SELECT TOP 10
+        ProductId,
+        ProductName,
+        CategoryId
+    FROM
+        Product_tbl
+    WHERE
+        ProductId >= @start
+    ORDER BY
+        ProductId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[PaginationQuery]    Script Date: 18-11-2023 11:36:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[PaginationQuery]
+(
+    @PageSize INT = 10, 
+    @PageNum  INT = 1,
+	 @TotalRows INT = null
+)
+AS
+BEGIN
+    
+	DECLARE @ProductCount int = 0;
+	DECLARE @pagecount decimal(8,2);
+    DECLARE @d int = 0;
+	DECLARE @LeftPortion int = 0;
+	DECLARE @RightPortion int = 0;
+	DECLARE @PageNumber int = 0;
+	
+	set @ProductCount = ( select COUNT(*)  FROM Product_tbl p inner join CategoryTbl c on p.CategoryId = c.CategoryId ) 
+	set @LeftPortion = @ProductCount / 10;
+    set @RightPortion = @ProductCount % 10;
+	
+
+	--Declare @dec decimal(8,2)
+ --   Set @dec = @pagecount
+	--set @LeftPortion = (Select Left(@dec, CharIndex('.',@dec)-1))
+ --   set @RightPortion = ( Select  RIGHT(@Dec, len(@dec) - CharIndex('.',@dec)))
+	--select @LeftPortion
+	--select @RightPortion
+	If(@RightPortion != 0)
+	Begin
+	 set @PageNumber = @LeftPortion + 1 ;
+	End
+	ELSE
+	Begin
+	 set @PageNumber = @LeftPortion ;
+	End
+                  
+                  
+
+SELECT 
+    p.ProductId, p.ProductName, c.CategoryId,c.CategoryName,@PageNumber as PageNumber,
+    TotalRows = COUNT(*) OVER()
+    FROM Product_tbl p inner join CategoryTbl c on p.CategoryId = c.CategoryId
+    ORDER BY ProductId
+    OFFSET (@PageNum - 1) * @PageSize ROWS
+    FETCH NEXT @PageSize ROWS ONLY;
+END
+GO

@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Nimap_Product_Test.Models.ProductDM>
+@{
+    ViewBag.Title = "ProuctList";
+}
+
+
+<style>
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+        /* Style the active/current link */
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        /* Add a grey background color on mouse-over */
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+    }
+
+    tr:hover {
+        background-color: #D6EEEE;
+    }
+</style>
+
+<div>
+    @Html.ActionLink("Add new Product", "InsertProduct")
+</div>
+
+<div class="container">
+
+
+    <div id="refreshList">
+        <table>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.ProductId</th>
+                        <th>@item.ProductName</th>
+                        <th>@item.CategoryId</th>
+                        <th>@item.CategoryName</th>
+                        <th>
+                            @Html.ActionLink("Edit", "BindProductIdByID", new { id = item.ProductId }) |
+                            @Html.ActionLink("Delete", "DeleteProductId", new { id = item.ProductId })
+                        </th>
+
+                        @*<th><input type="button" value="Edit" id="EditCategory" data-id="@item.CategoryId"> | <input type="button" value="Delete" /></th>*@
+                    </tr>
+                }
+            }
+
+
+        </table>
+    </div>
+    <br />
+    <!--		Start Pagination -->
+    <div class="pagination" id="pagination">
+        @if (Model.Count() > 0)
+        {
+            <a class="" href="#">Select Page -> </a>
+            for (var item = 1; item <= @Model.Select(x => x.PageNumber).FirstOrDefault(); item++)
+            {
+    <a class="" href="#" onclick=GetRecordsByNumber(@item)>@item</a>
+            }
+             <a class="" href="#">Total Count @Model.Select(x => x.PageNumber).FirstOrDefault()  records</a>
+
+            @*<a class="active" href="#">&laquo;</a>
+            <a class="" href="#">1</a>
+            <a class="" href="#">2</a>
+            <a class="" href="#">3</a>
+            <a class="" href="#">4</a>
+            <a class="" href="#">5</a>
+            <a class="" href="#">6</a>
+            <a class="" href="#">&raquo;</a>*@
+
+
+        }
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+      
+
+        
+
+
+    })
+    function GetRecordsByNumber(num) {
+        debugger;
+        $.ajax({
+            url: "/Product/ProuctList_PartialView",
+            data: { page: parseInt(num) },
+            type: "Get",
+            success: function (result) {
+                $("#refreshList").html(result);
+            }
+        });
+    }
+
+</script>
+
+

@@ -1,0 +1,71 @@
+﻿
+@model Nimap_Product_Test.Models.ProductDM
+@{
+    ViewBag.Title = "BindProductIdByID";
+}
+
+
+<div class="container">
+    <h2>Add New Product</h2>
+    <div class="form-horizontal" action="/action_page.php">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Select Category:</label>
+            <div class="col-sm-10">
+                <select id="CategoryId" class="form-control">
+                    <option value="0">Select Category</option>
+                    @foreach (var item in ViewBag.Category)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Product Name:</label>
+            <div class="col-sm-10">
+                <input type="hidden" id="ProductId" value="@Model.ProductId" />
+                <input type="text" class="form-control" id="ProductName" value="@Model.ProductName" placeholder="Enter Product" name="ProductName">
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="UpdateProduct" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $("#UpdateProduct").click(function () {
+        var proObj = {
+            ProductId: $('#ProductId').val(),
+            CategoryId: $('#CategoryId').val(),
+            ProductName: $('#ProductName').val()
+        };
+        $.ajax({
+            url: "/Product/UpdateProduct",
+            data: JSON.stringify(proObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                debugger;
+                if (result == 1) {
+                    alert("Proudct Update sucessfully!")
+                    $('#ProductName').val("");
+                }
+
+
+            }
+        });
+
+
+    });
+
+</script>
+
+
